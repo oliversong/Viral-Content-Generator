@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+        <style>
+            /* App custom styles */
+			.mainmenu{
+				width:130px;
+				height:50px;
+				padding-bottom:10px;
+				float:left;
+			}
+			.ui-btn-text{
+				white-space:normal !important;
+				vertical-align:middle;
+			}
+			.ui-btn-inner{
+				padding-top:15px !important;
+				padding-bottom:20px;
+			}
+			.arrowleft{
+				
+			}
+			.arrowright{
+				
+			}
+			.arrowdown{
+				margin-top:-10px;
+				left:50%;
+				margin-left:-70px;
+			}
+			.vertalign{
+				vertical-align:middle;
+			}
+			.spacer2{
+				position:relative;
+				left:120px;
+				margin-top:-30px;
+			}
+			img{
+				border:1px solid;
+			}
+        </style>
+        <script src="jquery.min.js">
+        </script>
+        <script src="jquery.mobile-1.1.0.min.js">
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+            <div data-role="content">
+                <h2>
+                    Viral Content Generator
+                </h2>
+                <div>
+                    <img style="width: 288px; height: 180px" src="images/lgo.png" />
+                </div>
+                <a data-role="button" class="mainmenu arrowleft" data-direction="reverse" data-transition="slide" href="#page3" data-icon="arrow-l" data-iconpos="left">
+                    Use Existing
+                </a>
+                <a data-role="button" class="mainmenu arrowright" data-transition="slide" href="#page4" data-icon="arrow-r" data-iconpos="right">
+                    New Template
+                </a><br /><br /><br /><br /><br />
+                <a data-role="button" class="mainmenu arrowdown" data-transition="slideup" href="#page5" data-icon="arrow-d" data-iconpos="bottom">
+                    History
+                </a>
+            </div>
+        </div>
+        <div data-role="page" id="page3">
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="textinput1">
+                        </label>
+                        <input id="textinput1" placeholder="" value="" type="search" />
+                    </fieldset>
+                </div>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page3" data-theme="" data-icon="" class="ui-btn-active vertalign">
+                                Popular
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page6" data-theme="" class="vertalign" data-icon="">
+                                Yours
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div>
+                            <img style="width: 144px; height: 100px" src="images/asd.png" />
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div>
+                            <b>
+                                &nbsp; &nbsp;&nbsp;Philosoraptor
+                                <br />
+                                <br />
+                            </b>
+                        </div>
+                        <a data-role="button" data-transition="fade" href="#page12">
+                            Select
+                        </a>
+                    </div>
+                    <div class="ui-block-a">
+                        <div>
+                            <img style="width: 144px; height: 100px" src="images/high-expectations-asian-father.png" />
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div>
+                        </div>
+                        <div>
+                            <b>
+                                &nbsp; &nbsp; &nbsp;Asian Dad
+                                <br />
+                            </b>
+                        </div>
+                        <a data-role="button" data-transition="fade" href="#page12">
+                            Select
+                        </a>
+                    </div>
+                    <div class="ui-block-a">
+                        <div>
+                            <img style="width: 144px; height: 100px" src="images/1.png" />
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div>
+                            <b>
+                                &nbsp; &nbsp;Awkward &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Penguin
+                                <br />
+                            </b>
+                        </div>
+                        <a data-role="button" data-transition="fade" href="#page12">
+                            Select
+                        </a>
+                    </div>
+                    <div class="ui-block-a">
+                        <div>
+                            <img style="width: 144px; height: 100px" src="images/25hip3k.png" />
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div>
+                            <b>
+                                &nbsp; &nbsp;Stupid Jill
+                            </b>
+                        </div>
+                        <a data-role="button" data-transition="fade" href="#page12">
+                            Select
+                        </a>
+                    </div>
+                    <div class="ui-block-a">
+                        <div>
+                            <img style="width: 144px; height: 100px" src="images/100.jpg" />
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div>
+                            <b>
+                                &nbsp; &nbsp;&nbsp;Catnip Cat
+                            </b>
+                        </div>
+                        <a data-role="button" data-transition="fade" href="#page12">
+                            Select
+                        </a>
+                    </div>
+                    <div class="ui-block-a">
+                        <div>
+                            <img style="width: 144px; height: 100px" src="images/as.png" />
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div>
+                            <b>
+                                &nbsp; &nbsp;Immature Teen
+                            </b>
+                        </div>
+                        <a data-role="button" data-transition="fade" href="#page12">
+                            Select
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="page4">
+            <div data-role="content">
+                <div>
+                    <img style="width: 288px; height: 380px" src="images/moyukhtake.png" />
+                </div>
+                <a data-role="button" data-transition="fade" href="#page7">
+                    Take
+                </a>
+            </div>
+        </div>
+        <div data-role="page" id="page5">
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="textinput3">
+                        </label>
+                        <input id="textinput3" placeholder="" value="" type="search" />
+                    </fieldset>
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div>
+                            <img style="width: 144px; height: 100px" src="images/moyukhsmall.png" />
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div>
+                            <b>
+                                &nbsp;&nbsp;Goofy Friend
+                            </b>
+                        </div>
+                        <a data-role="button" data-transition="fade" href="#page13">
+                            Select
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="page6">
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="textinput2">
+                        </label>
+                        <input id="textinput2" placeholder="" value="" type="search" />
+                    </fieldset>
+                </div>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page3" data-theme="" data-icon="">
+                                Popular
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page6" data-theme="" data-icon="" class="ui-btn-active">
+                                Yours
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div>
+                            <img style="width: 144px; height: 100px" src="images/moyukhicon.png" />
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div>
+                            <b>
+                                &nbsp;&nbsp;Goofy Friend
+                            </b>
+                        </div>
+                        <a data-role="button" data-transition="fade" href="#page12">
+                            Select
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="page7">
+            <div data-role="content">
+                <div>
+                    <img style="width: 288px; height: 380px" src="images/moyukhuse.png" />
+                </div>
+                <a data-role="button" data-inline="true" data-transition="fade" href="#page4">
+                    Retake
+                </a>
+                <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="fade" href="#page8">
+                    Use
+                </a>
+				<div class="spacer2">
+					Confirm
+				</div>
+            </div>
+        </div>
+        <div data-role="page" id="page8">
+            <div data-role="content">
+                <div>
+                    <img style="width: 288px; height: 380px" src="images/moyukhactualcrop.png" />
+                </div>
+                <a data-role="button" data-inline="true" data-transition="fade" href="#page7">
+                    Back
+                </a>
+
+                <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="fade" href="#page9">
+	
+                    Next
+                </a>
+				<div class="spacer2">
+					Crop
+				</div>
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+            </div>
+        </div>
+        <div data-role="page" id="page9">
+            <div data-role="content">                
+<div>
+                    <img style="width: 284px; height: 300px" src="images/moyukhcrop.png" />
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="slider4">
+                        </label>
+                        <input type="range" name="slider" id="slider4" value="50" min="0" max="100" data-highlight="false" />
+                    </fieldset>
+                </div>
+                <a data-role="button" data-inline="true" data-transition="fade" href="#page8">
+                    Back
+                </a>
+                <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="fade" href="#page10">
+                    Next
+                </a>
+				<div class="spacer2">
+					Filter
+				</div>
+            </div>
+        </div>
+        <div data-role="page" id="page10">
+            <div data-role="content">
+                <div>
+                    <img style="width: 284px; height: 300px" src="images/moyukhback.png" />
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="slider3">
+                        </label>
+                        <input type="range" name="slider" id="slider3" value="50" min="0" max="100" data-highlight="false" />
+                    </fieldset>
+                </div>
+                <a data-role="button" data-inline="true" data-transition="fade" href="#page9">
+                    Back
+                </a>
+                <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="fade" href="#page11">
+                    Next
+                </a>
+				<div style="margin-left:-23px;" class="spacer2">
+					Background
+				</div>
+            </div>
+        </div>
+        <div data-role="page" id="page11">
+            <div data-role="content">
+                <div>
+                    <img style="width: 284px; height: 288px" src="images/moyukhfinish.png" />
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="textinput8">
+                        </label>
+                        <input id="textinput8" placeholder="" value="Enter Name Here" type="text" />
+                    </fieldset>
+                </div>
+                <a style="margin-left:-1px" data-role="button" data-inline="true" data-transition="fade" href="#page10">
+                    Back
+                </a>
+                <a style="margin-left:-1px" data-role="button" data-inline="true" data-transition="fade" href="#page1">
+                    Home
+                </a>
+                <a data-role="button" style="margin-left:-1px" data-inline="true" data-transition="fade" href="#page12">
+                    Label
+                </a>
+            </div>
+        </div>
+        <div data-role="page" id="page12">
+            <div data-role="content">
+                <div>
+                    <img style="width: 284px; height: 250px" src="images/moyukhtext.png" />
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="textinput6">
+                        </label>
+                        <input id="textinput6" placeholder="" value="Top Text" type="text" />
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="textinput7">
+                        </label>
+                        <input id="textinput7" placeholder="" value="Bottom Text" type="text" />
+                    </fieldset>
+                </div>
+                <a data-role="button" data-inline="true" data-transition="fade" href="#page11">
+                    Back
+                </a>
+                <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="fade" href="#page13">
+                    Done
+                </a>
+<div style="margin-left:-12px;"class="spacer2">
+	Add Text
+	</div>
+            </div>
+        </div>
+        <div data-role="page" id="page13">
+            <div data-role="content">
+                <div>
+                    <img style="width: 284px; height: 250px" src="images/moyukhtext.png" />
+                </div>
+                <div>
+                    <b>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Done!
+                        <br />
+<br />
+                    </b>
+                </div>
+                <a style="margin-right:-1px" data-role="button" data-inline="true" data-transition="fade" href="#page12">
+                    Back
+                </a>
+                <a style="margin-right:-1px"data-role="button" data-inline="true" data-transition="fade" href="#page1">
+                    Home
+                </a>
+                <a data-role="button" data-inline="true" data-transition="fade" href="#page15">
+                    Share
+                </a>
+            </div>
+        </div>
+        <div data-role="page" id="page15">
+            <div data-role="content">
+                <div>
+                    <img style="width: 284px; height: 189px" src="images/moyukhshare.png" />
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div data-role="fieldcontain">
+                            <fieldset data-role="controlgroup">
+                                <label for="toggleswitch1">
+                                    Facebook
+                                </label>
+                                <select name="toggleswitch1" id="toggleswitch1" data-theme="" data-role="slider">
+                                    <option value="off">
+                                        Off
+                                    </option>
+                                    <option value="on">
+                                        On
+                                    </option>
+                                </select>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div data-role="fieldcontain">
+                            <fieldset data-role="controlgroup">
+                                <label for="toggleswitch2">
+                                    Twitter
+                                </label>
+                                <select name="toggleswitch2" id="toggleswitch2" data-theme="" data-role="slider">
+                                    <option value="off">
+                                        Off
+                                    </option>
+                                    <option value="on">
+                                        On
+                                    </option>
+                                </select>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="ui-block-a">
+                        <div data-role="fieldcontain">
+                            <fieldset data-role="controlgroup">
+                                <label for="toggleswitch5">
+                                    Tumblr
+                                </label>
+                                <select name="toggleswitch5" id="toggleswitch5" data-theme="" data-role="slider">
+                                    <option value="off">
+                                        Off
+                                    </option>
+                                    <option value="on">
+                                        On
+                                    </option>
+                                </select>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div data-role="fieldcontain">
+                            <fieldset data-role="controlgroup">
+                                <label for="toggleswitch6">
+                                    Flickr
+                                </label>
+                                <select name="toggleswitch6" id="toggleswitch6" data-theme="" data-role="slider">
+                                    <option value="off">
+                                        Off
+                                    </option>
+                                    <option value="on">
+                                        On
+                                    </option>
+                                </select>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                <a data-role="button" data-transition="fade" href="#page1">
+                    Go!
+                </a>
+            </div>
+        </div>
+        <script>
+            //App custom javascript
+        </script>
+    </body>
+</html>
