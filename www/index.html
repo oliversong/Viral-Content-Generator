@@ -9,7 +9,133 @@
 
         <style>
             /* App custom styles */
-
+			.blahButton{
+				width:80px;
+				top:18px;
+				position:relative;
+				left:40px;
+			}
+			.cancelButton{
+				width:150px;
+				left:50%;
+				margin-left:-75px !important;
+				position:relative;
+				top:-5px;
+			}
+			.appear{
+				margin-top:-500px;
+				top:0px;
+				position:relative;
+				background-color:#FFF;
+				box-shadow:#000 3px 3px 3px;
+				z-index:100;
+				margin-left:7px;
+			}
+			
+			.filterInvert{
+				position:relative;
+				margin-left:43px !important;
+			}
+			.filterGlow{
+				position:relative;
+				margin-left:43px !important;
+			}
+			.filterBack{
+				margin-top:15px !important;
+			}
+			.filterFilter{
+				margin-top:15px !important;
+				margin-left:170px !important;
+			}
+			.manual{
+				width:200px;
+				left:50%;
+				margin-left:-100px !important;
+			}
+			.appearr{
+			    background-color: #FFFFFF;
+			    box-shadow: 3px 3px 3px #000000;
+			    color: #000000;
+			    font-size: 30px;
+			    margin-top: -800px;
+			    text-align: center;
+				z-index:99;
+				position:relative;
+			}
+			.topVag{
+				height: 300px;
+			    pointer-events: none;
+			    position: relative;
+			    top: -360px;
+			    width: 100%;
+			}
+			.botVag{
+				position:relative;
+				width:100%;
+				height:300px;
+				top:-450px;
+				pointer-events:none;
+			}
+			.topox{
+				position:relative;
+				color: #FFFFFF;
+			    font-size: 30px;
+				font-family:Helvetica;
+				font-weight:bold;
+				text-align:center;
+				text-shadow:none;
+			    -webkit-text-stroke: 2px black;
+				pointer-events:none;
+			}
+			.botox{
+				color: #FFFFFF;
+			    font-size: 30px;
+				font-family:Helvetica;
+				font-weight:bold;
+			    position: relative;
+			    text-shadow: none;
+				pointer-events:none;
+				text-align:center;
+				-webkit-text-stroke: 2px black;
+			  	
+			}
+			.topPenis{
+				height: 300px;
+			    pointer-events: none;
+			    position: relative;
+			    top: -370px;
+			    width: 100%;
+			}
+			.botPenis{
+				position:relative;
+				width:100%;
+				height:300px;
+				top:-475px;
+				pointer-events:none;
+			}
+			.topText{
+				position:relative;
+				color: #FFFFFF;
+			    font-size: 30px;
+				font-family:Helvetica;
+				font-weight:bold;
+				text-align:center;
+				text-shadow:none;
+			    -webkit-text-stroke: 2px black;
+				pointer-events:none;
+			}
+			.bottomText{
+			  	color: #FFFFFF;
+			    font-size: 30px;
+				font-family:Helvetica;
+				font-weight:bold;
+			    position: relative;
+			    text-shadow: none;
+							pointer-events:none;
+				text-align:center;
+				-webkit-text-stroke: 2px black;
+			    		
+			}
 			.mainmenu{
 				width:130px;
 				height:50px;
@@ -38,7 +164,8 @@
 				
 			}
 			.arrowright{
-				
+				position:relative;
+				margin-left:25px;
 			}
 			.arrowdown{
 				margin-top:-10px;
@@ -50,7 +177,7 @@
 			}
 			.spacer2{
 				position:relative;
-				left:120px;
+				left:140px;
 				margin-top:-30px;
 			}
 			img{
@@ -60,6 +187,16 @@
 				background-image:url(#);
 				height:280px;
 				width:100%;
+				background-size:cover;
+			}
+			.logo{
+			    background-image: url("images/lgo2.png");
+			    height: 180px;
+			    left: 50%;
+			    margin-left: -145px;
+			    position: relative;
+			    width: 290px;
+				margin-bottom:15px;
 			}
         </style>
         <script src="jquery.min.js"></script>
@@ -163,6 +300,9 @@
     <body>
         <div data-role="page" id="page1" ontouchmove="touchMove(event);">
             <div data-role="content">
+				<div class="logo">
+					
+				</div>
                 <a data-role="button" class="mainmenu arrowleft" data-direction="reverse" data-transition="slide" href="#page3" data-icon="arrow-l" data-iconpos="left">
                     Use Existing
                 </a>
@@ -178,11 +318,9 @@
         <div data-role="page" id="page3" >
             <div data-role="content">
                 <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup" data-mini="true">
-                        <label for="textinput1">
-                        </label>
-                        <input id="textinput1" placeholder="" value="" type="search" />
-                    </fieldset>
+                    <a data-role="button" class="cancelButton" href="#page1" data-transition="slide"  data-icon="arrow-r" data-iconpos="right">
+	                    Cancel
+	                </a>
                 </div>
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
@@ -209,10 +347,9 @@
                             <b>
                                 &nbsp; &nbsp;&nbsp;Philosoraptor
                                 <br />
-                                <br />
                             </b>
                         </div>
-                        <a data-role="button" data-transition="none" href="#page12">
+                        <a class="blahButton" data-role="button" data-transition="none" href="#page12">
                             Select
                         </a>
                     </div>
@@ -230,7 +367,7 @@
                                 <br />
                             </b>
                         </div>
-                        <a data-role="button" data-transition="none" href="#page12">
+                        <a class="blahButton"  data-role="button" data-transition="none" href="#page12">
                             Select
                         </a>
                     </div>
@@ -242,11 +379,11 @@
                     <div class="ui-block-b">
                         <div>
                             <b>
-                                &nbsp; &nbsp;Awkward &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Penguin
+                                &nbsp; &nbsp;Awk Penguin
                                 <br />
                             </b>
                         </div>
-                        <a data-role="button" data-transition="none" href="#page12">
+                        <a class="blahButton" data-role="button" data-transition="none" href="#page12">
                             Select
                         </a>
                     </div>
@@ -261,7 +398,7 @@
                                 &nbsp; &nbsp;Stupid Jill
                             </b>
                         </div>
-                        <a data-role="button" data-transition="none" href="#page12">
+                        <a class="blahButton" data-role="button" data-transition="none" href="#page12">
                             Select
                         </a>
                     </div>
@@ -276,7 +413,7 @@
                                 &nbsp; &nbsp;&nbsp;Catnip Cat
                             </b>
                         </div>
-                        <a data-role="button" data-transition="none" href="#page12">
+                        <a class="blahButton" data-role="button" data-transition="none" href="#page12">
                             Select
                         </a>
                     </div>
@@ -291,7 +428,7 @@
                                 &nbsp; &nbsp;Immature Teen
                             </b>
                         </div>
-                        <a data-role="button" data-transition="none" href="#page12">
+                        <a class="blahButton" data-role="button" data-transition="none" href="#page12">
                             Select
                         </a>
                     </div>
@@ -302,11 +439,9 @@
         <div data-role="page" id="page5" ontouchmove="touchMove(event);">
             <div data-role="content">
                 <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup" data-mini="true">
-                        <label for="textinput3">
-                        </label>
-                        <input id="textinput3" placeholder="" value="" type="search" />
-                    </fieldset>
+                    <a data-role="button" class="cancelButton" href="#page1" data-transition="slidedown"  data-icon="arrow-u" data-iconpos="top">
+	                    Cancel
+	                </a>
                 </div>
                 <div class="ui-grid-a">
                     <div class="ui-block-a">
@@ -320,7 +455,7 @@
                                 &nbsp;&nbsp;Goofy Friend
                             </b>
                         </div>
-                        <a data-role="button" data-transition="none" href="#page13">
+                        <a class="blahButton" data-role="button" data-transition="none" href="#page12">
                             Select
                         </a>
                     </div>
@@ -331,11 +466,9 @@
         <div data-role="page" id="page6" ontouchmove="touchMove(event);">
             <div data-role="content">
                 <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup" data-mini="true">
-                        <label for="textinput2">
-                        </label>
-                        <input id="textinput2" placeholder="" value="" type="search" />
-                    </fieldset>
+					<a data-role="button" class="cancelButton" href="#page1" data-transition="slide"  data-icon="arrow-r" data-iconpos="right">
+	                    Cancel
+	                </a>
                 </div>
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
@@ -363,7 +496,7 @@
                                 &nbsp;&nbsp;Goofy Friend
                             </b>
                         </div>
-                        <a data-role="button" data-transition="none" href="#page12">
+                        <a class="blahButton" data-role="button" data-transition="none" href="#page12">
                             Select
                         </a>
                     </div>
@@ -383,17 +516,17 @@
 	                <a data-role="button" data-inline="true" data-transition="none" href="#" onclick="clearFilter('myImage');">
 	                    Default
 	                </a>
-	                <a data-role="button" data-inline="true" data-transition="none" href="#" onclick="pointillize();">
+	                <a class="filterInvert" data-role="button" data-inline="true" data-transition="none" href="#" onclick="pointillize();">
 	                    Invert
 	                </a>
-	                <a data-role="button" data-inline="true" data-transition="none" href="#" onclick="glow();">
+	                <a class="filterGlow" data-role="button" data-inline="true" data-transition="none" href="#" onclick="glow();">
 	                    Glow
 	                </a>
                 </div>
-                <a data-role="button" data-inline="true" data-transition="none" href="#page1">
+                <a class="filterBack" data-role="button" data-inline="true" data-transition="none" href="#page1">
                     Back
                 </a>
-                <a style="margin-left:100px;" onclick="filterfinal();" data-role="button" data-inline="true" data-transition="none" href="#page10">
+                <a class="filterFilter" onclick="filterfinal();" data-role="button" data-inline="true" data-transition="none" href="#page10">
                     Filter
                 </a>
 				<div class="spacer2">
@@ -405,10 +538,10 @@
         <div data-role="page" id="page10">
             <div data-role="content">
                 <div class="blabbity">
-						<img id="backable" style="position:relative;left:50%;margin-top:80px;margin-left:-60px;width: 120px; height: 120px" src="images/moyukhactualcrop.png" />
+						<img id="backable" style="border:none;position:relative;left:50%;padding-top:80px;margin-left:-60px;width: 120px; height: 120px" src="images/moyukhactualcrop.png" />
                 </div>
-				<div style="position:relative;height:80px;width:400px;overflow-x:scroll;">
-                	<div data-role="fieldcontain" style="position:relative;height:40px; width:500px;">
+				<div style="margin-top:20px;margin-bottom:10px;position:relative;height:80px;width:400px;overflow-x:scroll;">
+                	<div data-role="fieldcontain" style="position:relative;height:40px; width:580px;">
 						<a data-role="button" data-inline="true" data-transition="none" href="#" onclick="clearBack();">
 		                    Default
 		                </a>
@@ -432,13 +565,13 @@
 		                </a>
 	                </div>
 				</div>
-                <a data-role="button" data-inline="true" data-transition="none" href="#page9">
+                <a style="margin-top:-5px" data-role="button" data-inline="true" data-transition="none" href="#page9">
                     Back
                 </a>
-                <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="none" href="#page11">
+                <a style="margin-left: 246px;position: relative;top: -40px;" onclick="copyOver();" data-role="button" data-inline="true" data-transition="none" href="#page11">
                     Set
                 </a>
-				<div style="margin-left:-23px;" class="spacer2">
+				<div style="margin-left:-1px;position:relative;top:-38px;" class="spacer2">
 					2/4
 				</div>
             </div>
@@ -446,23 +579,23 @@
 		<!-- DONE PAGE -->
         <div data-role="page" id="page11" ontouchmove="touchMove(event);">
             <div data-role="content">
-                <div>
-                    <img style="width: 284px; height: 288px" src="images/moyukhfinish.png" />
+                <div class="boobity">
+                    
                 </div>
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup" data-mini="true">
                         <label for="textinput8">
                         </label>
-                        <input id="textinput8" placeholder="" value="Enter Name Here" type="text" />
+                        <input id="textinput8" placeholder="Enter Name Here" type="text" />
                     </fieldset>
                 </div>
-                <a style="margin-left:-1px" onclick="glow();" data-role="button" data-inline="true" data-transition="none" href="#page10">
+                <a style="margin-left:-1px;margin-top:25px;" onclick="removeBoob();" data-role="button" data-inline="true" data-transition="none" href="#page10">
                     Back
                 </a>
-                <a style="margin-left:-1px" data-role="button" data-inline="true" data-transition="none" href="#page1">
+                <a style="margin-left:50px;margin-top:25px;" data-role="button" data-inline="true" data-transition="none" href="#page1">
                     Home
                 </a>
-                <a data-role="button" style="margin-left:-1px" data-inline="true" data-transition="none" href="#page12">
+                <a data-role="button" onclick="copyOver2();" style="margin-left:50px;margin-top:25px" data-inline="true" data-transition="none" href="#page12">
                     Label
                 </a>
             </div>
@@ -470,137 +603,150 @@
 		<!-- add text page -->
         <div data-role="page" id="page12" ontouchmove="touchMove(event);">
             <div data-role="content">
-                <div>
-                    <img style="width: 284px; height: 250px" src="images/moyukhtext.png" />
-                </div>
-                <div data-role="fieldcontain">
+                <div style="padding:0;" data-role="fieldcontain">
                     <fieldset data-role="controlgroup" data-mini="true">
                         <label for="textinput6">
                         </label>
                         <input id="textinput6" placeholder="Top Text" type="text" />
                     </fieldset>
                 </div>
-                <div data-role="fieldcontain">
+				
+                <div class="beebity">
+	
+                </div>
+                <div style="padding:0;" data-role="fieldcontain">
                     <fieldset data-role="controlgroup" data-mini="true">
-                        <label for="textinput7">
-                        </label>
-                        <input id="textinput7" placeholder="Bottom Text" type="text" />
+
+                        	<label for="textinput7">
+	                        </label>
+	                        <input id="textinput7" placeholder="Bottom Text" type="text" />
+
                     </fieldset>
                 </div>
-                <a data-role="button" data-inline="true" data-transition="none" href="#page11">
+                <a style="margin-top:15px" data-role="button" data-inline="true" data-transition="none" href="#page11">
                     Back
                 </a>
-                <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="none" href="#page13">
+                <a style="margin-left:170px;margin-top:15px;" onclick="copyOver3();" data-role="button" data-inline="true" data-transition="none" href="#page13">
                     Done
                 </a>
-				<div style="margin-left:-12px;"class="spacer2">
+				<div style="margin-left:-30px;"class="spacer2">
 					Add Text
+				</div>
+				<div class="topPenis">
+					<div class="topText"></div>
+				</div>
+				<div class="botPenis">
+					<div class="bottomText"></div>
 				</div>
             </div>
         </div>
 		<!-- MEME COMPLETED PAGE -->
         <div data-role="page" id="page13" ontouchmove="touchMove(event);">
             <div data-role="content">
-                <div>
-                    <img style="width: 284px; height: 250px" src="images/moyukhtext.png" />
+                <div class="baabity">
+
                 </div>
                 <div>
                     <b>
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Done!
-                        <br /><br />
+						<div style="left:50%;margin-left:-25px;position:relative;font-size:20px;margin-top:20px;">Done!</div>
                     </b>
                 </div>
-                <a style="margin-right:-1px" data-role="button" data-inline="true" data-transition="none" href="#page12">
+                <a style="margin-top:30px;" onclick="removeBaab();" data-role="button" data-inline="true" data-transition="none" href="#page12">
                     Back
                 </a>
-                <a style="margin-right:-1px"data-role="button" data-inline="true" data-transition="none" href="#page1">
+                <a style="margin-top:30px;margin-left:48px;" data-role="button" data-inline="true" data-transition="none" href="#page1">
                     Home
                 </a>
-                <a data-role="button" data-inline="true" data-transition="none" href="#page15">
+                <a style="margin-top:30px;margin-left:48px;" data-role="button" onclick="makeAppear();" data-inline="true" data-transition="none" href="#">
                     Share
                 </a>
-            </div>
-        </div>
-		<!-- SHARE PAGE -->
-        <div data-role="page" id="page15" ontouchmove="touchMove(event);">
-            <div data-role="content">
-                <div>
-                    <img style="width: 284px; height: 189px" src="images/moyukhshare.png" />
-                </div>
-                <div class="ui-grid-a">
-                    <div class="ui-block-a">
-                        <div data-role="fieldcontain">
-                            <fieldset data-role="controlgroup">
-                                <label for="toggleswitch1">
-                                    Facebook
-                                </label>
-                                <select name="toggleswitch1" id="toggleswitch1" data-theme="" data-role="slider">
-                                    <option value="off">
-                                        Off
-                                    </option>
-                                    <option value="on">
-                                        On
-                                    </option>
-                                </select>
-                            </fieldset>
-                        </div>
-                    </div>
-                    <div class="ui-block-b">
-                        <div data-role="fieldcontain">
-                            <fieldset data-role="controlgroup">
-                                <label for="toggleswitch2">
-                                    Twitter
-                                </label>
-                                <select name="toggleswitch2" id="toggleswitch2" data-theme="" data-role="slider">
-                                    <option value="off">
-                                        Off
-                                    </option>
-                                    <option value="on">
-                                        On
-                                    </option>
-                                </select>
-                            </fieldset>
-                        </div>
-                    </div>
-                    <div class="ui-block-a">
-                        <div data-role="fieldcontain">
-                            <fieldset data-role="controlgroup">
-                                <label for="toggleswitch5">
-                                    Tumblr
-                                </label>
-                                <select name="toggleswitch5" id="toggleswitch5" data-theme="" data-role="slider">
-                                    <option value="off">
-                                        Off
-                                    </option>
-                                    <option value="on">
-                                        On
-                                    </option>
-                                </select>
-                            </fieldset>
-                        </div>
-                    </div>
-                    <div class="ui-block-b">
-                        <div data-role="fieldcontain">
-                            <fieldset data-role="controlgroup">
-                                <label for="toggleswitch6">
-                                    Flickr
-                                </label>
-                                <select name="toggleswitch6" id="toggleswitch6" data-theme="" data-role="slider">
-                                    <option value="off">
-                                        Off
-                                    </option>
-                                    <option value="on">
-                                        On
-                                    </option>
-                                </select>
-                            </fieldset>
-                        </div>
-                    </div>
-                </div>
-                <a data-role="button" data-transition="none" href="#page1">
-                    Go!
-                </a>
+				<div class="topVag">
+					<div class="topox"></div>
+				</div>
+				<div class="botVag">
+					<div class="botox"></div>
+				</div>
+				<div class="appear" style="opacity:0;">
+					<div class="ui-grid-a">
+	                    <div class="ui-block-a">
+	                        <div data-role="fieldcontain">
+	                            <fieldset data-role="controlgroup">
+	                                <label for="toggleswitch1">
+	                                    Facebook
+	                                </label>
+	                                <select name="toggleswitch1" id="toggleswitch1" data-theme="" data-role="slider">
+	                                    <option value="off">
+	                                        Off
+	                                    </option>
+	                                    <option value="on">
+	                                        On
+	                                    </option>
+	                                </select>
+	                            </fieldset>
+	                        </div>
+	                    </div>
+	                    <div class="ui-block-b">
+	                        <div data-role="fieldcontain">
+	                            <fieldset data-role="controlgroup">
+	                                <label for="toggleswitch2">
+	                                    Twitter
+	                                </label>
+	                                <select name="toggleswitch2" id="toggleswitch2" data-theme="" data-role="slider">
+	                                    <option value="off">
+	                                        Off
+	                                    </option>
+	                                    <option value="on">
+	                                        On
+	                                    </option>
+	                                </select>
+	                            </fieldset>
+	                        </div>
+	                    </div>
+	                    <div class="ui-block-a">
+	                        <div data-role="fieldcontain">
+	                            <fieldset data-role="controlgroup">
+	                                <label for="toggleswitch5">
+	                                    Tumblr
+	                                </label>
+	                                <select name="toggleswitch5" id="toggleswitch5" data-theme="" data-role="slider">
+	                                    <option value="off">
+	                                        Off
+	                                    </option>
+	                                    <option value="on">
+	                                        On
+	                                    </option>
+	                                </select>
+	                            </fieldset>
+	                        </div>
+	                    </div>
+	                    <div class="ui-block-b">
+	                        <div data-role="fieldcontain">
+	                            <fieldset data-role="controlgroup">
+	                                <label for="toggleswitch6">
+	                                    Flickr
+	                                </label>
+	                                <select name="toggleswitch6" id="toggleswitch6" data-theme="" data-role="slider">
+	                                    <option value="off">
+	                                        Off
+	                                    </option>
+	                                    <option value="on">
+	                                        On
+	                                    </option>
+	                                </select>
+	                            </fieldset>
+	                        </div>
+	                    </div>
+	                </div>
+	                <a data-role="button" onclick="makeAppear2();" data-transition="none" href="#">
+	                    Go!
+	                </a>
+				</div>
+				<div class="appearr" style="display:none;">
+					Content has been shared!
+	                <a class="manual" onclick="gtfo();"data-role="button" href="#page1" data-transition="none">
+	                    Return
+	                </a>
+				</div>
             </div>
         </div>
         <script>
@@ -625,7 +771,59 @@
 				event.preventDefault();
 			}
 			function setBack(color){
-				$(".blabbity").css("background-image",color+".png");
+				$(".blabbity").css("background-image","url('images/"+color+".png')");
+			}
+			function clearBack(){
+				$(".blabbity").css("background-color","white");
+				$(".blabbity").css("background-image","none");
+			}
+			function copyOver(){
+				console.log("adding to boob");
+				$(".blabbity:first").clone().prependTo('.boobity');	
+			}
+			function copyOver2(){
+				console.log("adding to beeb");
+				$(".blabbity:first").clone().prependTo('.beebity');
+			}
+			function copyOver3(){
+				console.log("adding to baab");
+				$(".blabbity:first").clone().prependTo('.baabity');
+				$(".topox").html($('.topText').html());
+				$(".botox").html($('.bottomText').html());
+			}
+			function removeBoob(){
+				$(".boobity, .beebity, .baabity").children().remove();
+			}
+			function removeBaab(){
+				$(".baabity").children().remove();
+			}
+			$("#textinput6").keyup(function(){
+				
+				$(".topText").html($("#textinput6").val());
+			});
+			$("#textinput7").keyup(function(){
+
+				$(".bottomText").html($("#textinput7").val());
+			})
+			function makeAppear(){
+				$(".appear").animate({
+					opacity:1,
+					top:'-=350px'
+				}, 1000, function(){
+					//niggas
+				});
+
+			};
+			function makeAppear2(){
+				$(".appear").fadeOut("slow",makeAppear3());
+			}
+			function makeAppear3(){
+				$(".appearr").css("display","block");
+			}
+			function gtfo(){
+				$(".appear").css("top","0px");
+				$(".appear").css("opacity","0");
+				$(".appearr").css("display","none");
 			}
         </script>
     </body>
