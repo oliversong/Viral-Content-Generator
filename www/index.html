@@ -6,8 +6,10 @@
         <title>
         </title>
         <link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+
         <style>
             /* App custom styles */
+
 			.mainmenu{
 				width:130px;
 				height:50px;
@@ -21,6 +23,9 @@
 			.ui-btn-inner{
 				padding-top:15px !important;
 				padding-bottom:20px;
+			}
+			.ui-content{
+
 			}
 			.arrowleft{
 				
@@ -45,24 +50,109 @@
 				border:1px solid;
 			}
         </style>
-        <script src="jquery.min.js">
-        </script>
-        <script src="jquery.mobile-1.1.0.min.js">
-        </script>
+        <script src="jquery.min.js"></script>
+	    <script type="text/javascript" charset="utf-8" src="cordova-1.7.0.js"></script>
+        <script src="jquery.mobile-1.1.0.min.js"></script>
+        <script src="pixastic.custom.js"></script>
+	    <script type="text/javascript" charset="utf-8">
+
+		    var pictureSource;   // picture source
+		    var destinationType; // sets the format of returned value 
+
+		    // Wait for Cordova to connect with the device
+		    //
+		    document.addEventListener("deviceready",onDeviceReady,false);
+
+		    // Cordova is ready to be used!
+		    //
+		    function onDeviceReady() {
+		        pictureSource=navigator.camera.PictureSourceType;
+		        destinationType=navigator.camera.DestinationType;
+		    }
+
+		    // Called when a photo is successfully retrieved
+		    //
+		    function onPhotoDataSuccess(imageData) {
+		      // Uncomment to view the base64 encoded image data
+		      // console.log(imageData);
+
+		      // Get image handle
+		      //
+		      var smallImage = document.getElementById('myImage');
+
+		      // Unhide image elements
+		      //
+		      smallImage.style.display = 'block';
+
+		      // Show the captured photo
+		      // The inline CSS rules are used to resize the image
+		      //
+		      smallImage.src = "data:image/jpeg;base64," + imageData;
+		    }
+
+		    // Called when a photo is successfully retrieved
+		    //
+		    function onPhotoURISuccess(imageURI) {
+		      // Uncomment to view the image file URI 
+		      // console.log(imageURI);
+
+		      // Get image handle
+		      //
+		      var largeImage = document.getElementById('myImage');
+
+		      // Unhide image elements
+		      //
+		      largeImage.style.display = 'block';
+
+		      // Show the captured photo
+		      // The inline CSS rules are used to resize the image
+		      //
+		      largeImage.src = imageURI;
+		    }
+
+		    // A button will call this function
+		    //
+		    function capturePhoto() {
+		      // Take picture using device camera and retrieve image as base64-encoded string
+		      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+		        destinationType: destinationType.DATA_URL });
+		    }
+
+		    // A button will call this function
+		    //
+		    function capturePhotoEdit() {
+		      // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
+		      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+		        destinationType: destinationType.DATA_URL });
+		    }
+
+		    // A button will call this function
+		    //
+		    function getPhoto(source) {
+		      // Retrieve image file location from specified source
+		      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+		        destinationType: destinationType.FILE_URI,
+		        sourceType: source });
+		    }
+
+		    // Called if something bad happens.
+		    // 
+		    function onFail(message) {
+		      alert('Failed because: ' + message);
+		    }
+
+	    </script>
+
+
+
     </head>
     <body>
-        <div data-role="page" id="page1">
+        <div data-role="page" id="page1" ontouchmove="touchMove(event);">
             <div data-role="content">
-                <h2>
-                    Viral Content Generator
-                </h2>
-                <div>
-                    <img style="width: 288px; height: 180px" src="images/lgo.png" />
-                </div>
                 <a data-role="button" class="mainmenu arrowleft" data-direction="reverse" data-transition="slide" href="#page3" data-icon="arrow-l" data-iconpos="left">
                     Use Existing
                 </a>
-                <a data-role="button" class="mainmenu arrowright" data-transition="slide" href="#page4" data-icon="arrow-r" data-iconpos="right">
+                <a data-role="button" class="mainmenu arrowright" onclick="capturePhotoEdit();" href="#page9" data-transition="slide"  data-icon="arrow-r" data-iconpos="right">
                     New Template
                 </a><br /><br /><br /><br /><br />
                 <a data-role="button" class="mainmenu arrowdown" data-transition="slideup" href="#page5" data-icon="arrow-d" data-iconpos="bottom">
@@ -70,7 +160,8 @@
                 </a>
             </div>
         </div>
-        <div data-role="page" id="page3">
+		<!-- USE EXISTING -->
+        <div data-role="page" id="page3" ontouchmove="touchMove(event);">
             <div data-role="content">
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup" data-mini="true">
@@ -82,12 +173,12 @@
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
                         <li>
-                            <a href="#page3" data-theme="" data-icon="" class="ui-btn-active vertalign">
+                            <a href="#page3" data-transition="none" data-theme="" data-icon="" class="ui-btn-active vertalign">
                                 Popular
                             </a>
                         </li>
                         <li>
-                            <a href="#page6" data-theme="" class="vertalign" data-icon="">
+                            <a href="#page6" data-transition="none" data-theme="" class="vertalign" data-icon="">
                                 Yours
                             </a>
                         </li>
@@ -107,7 +198,7 @@
                                 <br />
                             </b>
                         </div>
-                        <a data-role="button" data-transition="fade" href="#page12">
+                        <a data-role="button" data-transition="none" href="#page12">
                             Select
                         </a>
                     </div>
@@ -125,7 +216,7 @@
                                 <br />
                             </b>
                         </div>
-                        <a data-role="button" data-transition="fade" href="#page12">
+                        <a data-role="button" data-transition="none" href="#page12">
                             Select
                         </a>
                     </div>
@@ -141,7 +232,7 @@
                                 <br />
                             </b>
                         </div>
-                        <a data-role="button" data-transition="fade" href="#page12">
+                        <a data-role="button" data-transition="none" href="#page12">
                             Select
                         </a>
                     </div>
@@ -156,7 +247,7 @@
                                 &nbsp; &nbsp;Stupid Jill
                             </b>
                         </div>
-                        <a data-role="button" data-transition="fade" href="#page12">
+                        <a data-role="button" data-transition="none" href="#page12">
                             Select
                         </a>
                     </div>
@@ -171,7 +262,7 @@
                                 &nbsp; &nbsp;&nbsp;Catnip Cat
                             </b>
                         </div>
-                        <a data-role="button" data-transition="fade" href="#page12">
+                        <a data-role="button" data-transition="none" href="#page12">
                             Select
                         </a>
                     </div>
@@ -186,24 +277,15 @@
                                 &nbsp; &nbsp;Immature Teen
                             </b>
                         </div>
-                        <a data-role="button" data-transition="fade" href="#page12">
+                        <a data-role="button" data-transition="none" href="#page12">
                             Select
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div data-role="page" id="page4">
-            <div data-role="content">
-                <div>
-                    <img style="width: 288px; height: 380px" src="images/moyukhtake.png" />
-                </div>
-                <a data-role="button" data-transition="fade" href="#page7">
-                    Take
-                </a>
-            </div>
-        </div>
-        <div data-role="page" id="page5">
+		<!-- HISTORY -->
+        <div data-role="page" id="page5" ontouchmove="touchMove(event);">
             <div data-role="content">
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup" data-mini="true">
@@ -224,14 +306,15 @@
                                 &nbsp;&nbsp;Goofy Friend
                             </b>
                         </div>
-                        <a data-role="button" data-transition="fade" href="#page13">
+                        <a data-role="button" data-transition="none" href="#page13">
                             Select
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div data-role="page" id="page6">
+		<!--USE EXISTING -->
+        <div data-role="page" id="page6" ontouchmove="touchMove(event);">
             <div data-role="content">
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup" data-mini="true">
@@ -243,12 +326,12 @@
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
                         <li>
-                            <a href="#page3" data-theme="" data-icon="">
+                            <a href="#page3" data-transition="none" data-theme="" data-icon="">
                                 Popular
                             </a>
                         </li>
                         <li>
-                            <a href="#page6" data-theme="" data-icon="" class="ui-btn-active">
+                            <a href="#page6" data-transition="none" data-theme="" data-icon="" class="ui-btn-active">
                                 Yours
                             </a>
                         </li>
@@ -266,54 +349,22 @@
                                 &nbsp;&nbsp;Goofy Friend
                             </b>
                         </div>
-                        <a data-role="button" data-transition="fade" href="#page12">
+                        <a data-role="button" data-transition="none" href="#page12">
                             Select
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div data-role="page" id="page7">
-            <div data-role="content">
-                <div>
-                    <img style="width: 288px; height: 380px" src="images/moyukhuse.png" />
-                </div>
-                <a data-role="button" data-inline="true" data-transition="fade" href="#page4">
-                    Retake
-                </a>
-                <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="fade" href="#page8">
-                    Use
-                </a>
-				<div class="spacer2">
-					Confirm
-				</div>
-            </div>
-        </div>
-        <div data-role="page" id="page8">
-            <div data-role="content">
-                <div>
-                    <img style="width: 288px; height: 380px" src="images/moyukhactualcrop.png" />
-                </div>
-                <a data-role="button" data-inline="true" data-transition="fade" href="#page7">
-                    Back
-                </a>
-
-                <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="fade" href="#page9">
-	
-                    Next
-                </a>
-				<div class="spacer2">
-					Crop
-				</div>
-            </div>
-            <div data-theme="a" data-role="footer" data-position="fixed">
-            </div>
-        </div>
-        <div data-role="page" id="page9">
+		
+		<!-- FILTER PAGE -->
+        <div data-role="page" id="page9" ontouchmove="touchMove(event);">
             <div data-role="content">                
-<div>
-                    <img style="width: 284px; height: 300px" src="images/moyukhcrop.png" />
-                </div>
+				
+				<div id="filterPhoto">
+					<img id="myImage" style="position:relative;left:50%;margin-left:-140px;width: 280px; height: 280px" src="images/moyukhactualcrop.png" />
+				</div>
+	
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
                         <label for="slider4">
@@ -321,18 +372,19 @@
                         <input type="range" name="slider" id="slider4" value="50" min="0" max="100" data-highlight="false" />
                     </fieldset>
                 </div>
-                <a data-role="button" data-inline="true" data-transition="fade" href="#page8">
+                <a data-role="button" data-inline="true" data-transition="none" href="#page1">
                     Back
                 </a>
-                <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="fade" href="#page10">
-                    Next
+                <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="none" href="#page10">
+                    Filter
                 </a>
 				<div class="spacer2">
-					Filter
+					1/4
 				</div>
             </div>
         </div>
-        <div data-role="page" id="page10">
+		<!-- BACKGROUND SET PAGE -->
+        <div data-role="page" id="page10" ontouchmove="touchMove(event);">
             <div data-role="content">
                 <div>
                     <img style="width: 284px; height: 300px" src="images/moyukhback.png" />
@@ -344,18 +396,19 @@
                         <input type="range" name="slider" id="slider3" value="50" min="0" max="100" data-highlight="false" />
                     </fieldset>
                 </div>
-                <a data-role="button" data-inline="true" data-transition="fade" href="#page9">
+                <a data-role="button" data-inline="true" data-transition="none" href="#page9">
                     Back
                 </a>
-                <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="fade" href="#page11">
-                    Next
+                <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="none" href="#page11">
+                    Set
                 </a>
 				<div style="margin-left:-23px;" class="spacer2">
-					Background
+					2/4
 				</div>
             </div>
         </div>
-        <div data-role="page" id="page11">
+		<!-- DONE PAGE -->
+        <div data-role="page" id="page11" ontouchmove="touchMove(event);">
             <div data-role="content">
                 <div>
                     <img style="width: 284px; height: 288px" src="images/moyukhfinish.png" />
@@ -367,18 +420,19 @@
                         <input id="textinput8" placeholder="" value="Enter Name Here" type="text" />
                     </fieldset>
                 </div>
-                <a style="margin-left:-1px" data-role="button" data-inline="true" data-transition="fade" href="#page10">
+                <a style="margin-left:-1px" data-role="button" data-inline="true" data-transition="none" href="#page10">
                     Back
                 </a>
-                <a style="margin-left:-1px" data-role="button" data-inline="true" data-transition="fade" href="#page1">
+                <a style="margin-left:-1px" data-role="button" data-inline="true" data-transition="none" href="#page1">
                     Home
                 </a>
-                <a data-role="button" style="margin-left:-1px" data-inline="true" data-transition="fade" href="#page12">
+                <a data-role="button" style="margin-left:-1px" data-inline="true" data-transition="none" href="#page12">
                     Label
                 </a>
             </div>
         </div>
-        <div data-role="page" id="page12">
+		<!-- add text page -->
+        <div data-role="page" id="page12" ontouchmove="touchMove(event);">
             <div data-role="content">
                 <div>
                     <img style="width: 284px; height: 250px" src="images/moyukhtext.png" />
@@ -387,28 +441,29 @@
                     <fieldset data-role="controlgroup" data-mini="true">
                         <label for="textinput6">
                         </label>
-                        <input id="textinput6" placeholder="" value="Top Text" type="text" />
+                        <input id="textinput6" placeholder="Top Text" type="text" />
                     </fieldset>
                 </div>
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup" data-mini="true">
                         <label for="textinput7">
                         </label>
-                        <input id="textinput7" placeholder="" value="Bottom Text" type="text" />
+                        <input id="textinput7" placeholder="Bottom Text" type="text" />
                     </fieldset>
                 </div>
-                <a data-role="button" data-inline="true" data-transition="fade" href="#page11">
+                <a data-role="button" data-inline="true" data-transition="none" href="#page11">
                     Back
                 </a>
-                <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="fade" href="#page13">
+                <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="none" href="#page13">
                     Done
                 </a>
-<div style="margin-left:-12px;"class="spacer2">
-	Add Text
-	</div>
+				<div style="margin-left:-12px;"class="spacer2">
+					Add Text
+				</div>
             </div>
         </div>
-        <div data-role="page" id="page13">
+		<!-- MEME COMPLETED PAGE -->
+        <div data-role="page" id="page13" ontouchmove="touchMove(event);">
             <div data-role="content">
                 <div>
                     <img style="width: 284px; height: 250px" src="images/moyukhtext.png" />
@@ -417,22 +472,22 @@
                     <b>
                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Done!
-                        <br />
-<br />
+                        <br /><br />
                     </b>
                 </div>
-                <a style="margin-right:-1px" data-role="button" data-inline="true" data-transition="fade" href="#page12">
+                <a style="margin-right:-1px" data-role="button" data-inline="true" data-transition="none" href="#page12">
                     Back
                 </a>
-                <a style="margin-right:-1px"data-role="button" data-inline="true" data-transition="fade" href="#page1">
+                <a style="margin-right:-1px"data-role="button" data-inline="true" data-transition="none" href="#page1">
                     Home
                 </a>
-                <a data-role="button" data-inline="true" data-transition="fade" href="#page15">
+                <a data-role="button" data-inline="true" data-transition="none" href="#page15">
                     Share
                 </a>
             </div>
         </div>
-        <div data-role="page" id="page15">
+		<!-- SHARE PAGE -->
+        <div data-role="page" id="page15" ontouchmove="touchMove(event);">
             <div data-role="content">
                 <div>
                     <img style="width: 284px; height: 189px" src="images/moyukhshare.png" />
@@ -507,13 +562,39 @@
                         </div>
                     </div>
                 </div>
-                <a data-role="button" data-transition="fade" href="#page1">
+                <a data-role="button" data-transition="none" href="#page1">
                     Go!
                 </a>
             </div>
         </div>
         <script>
             //App custom javascript
+
+			var img = document.getElementById("myImage"); // get the image element
+
+			if (img.complete) {	// make sure the image is fully loaded
+				var newimg = Pixastic.process(
+					img,
+					"brightness",	// brightness/contrast adjustment
+
+					{		// options object
+
+						"brightness" : 60,	// set brightness option value to 60
+						"contrast" : 0.5,	// set contrast option value to 0.5,
+						"rect" : {		// apply the effect to this region only
+							"left" : 100,
+							"right" : 100,
+							"width" : 200,
+							"height" : 150
+						}
+					}
+				)
+			}
+
+			touchMove = function(event) {
+				// Prevent scrolling on this element
+				event.preventDefault();
+			}
         </script>
     </body>
 </html>
