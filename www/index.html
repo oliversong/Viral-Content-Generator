@@ -56,6 +56,11 @@
 			img{
 				border:1px solid;
 			}
+			.blabbity{
+				background-image:url(#);
+				height:280px;
+				width:100%;
+			}
         </style>
         <script src="jquery.min.js"></script>
 	    <script type="text/javascript" charset="utf-8" src="cordova-1.7.0.js"></script>
@@ -86,16 +91,17 @@
 		      // Get image handle
 		      //
 		      var smallImage = document.getElementById('myImage');
-			  var otherImage = document.getElementById('backable');
+		      var smallImage2 = document.getElementById('backable');
+
 		      // Unhide image elements
 		      //
 		      smallImage.style.display = 'block';
-			  backable.style.display='block';
+			  smallImage2.style.display = 'block';
 		      // Show the captured photo
 		      // The inline CSS rules are used to resize the image
 		      //
 		      smallImage.src = "data:image/jpeg;base64," + imageData;
-		      backable.src = "data:image/jpeg;base64," + imageData;
+ 		      smallImage2.src = "data:image/jpeg;base64," + imageData; 
 		    }
 
 		    // Called when a photo is successfully retrieved
@@ -169,7 +175,7 @@
             </div>
         </div>
 		<!-- USE EXISTING -->
-        <div data-role="page" id="page3" ontouchmove="touchMove(event);">
+        <div data-role="page" id="page3" >
             <div data-role="content">
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup" data-mini="true">
@@ -378,7 +384,7 @@
 	                    Default
 	                </a>
 	                <a data-role="button" data-inline="true" data-transition="none" href="#" onclick="pointillize();">
-	                    Pointillize
+	                    Invert
 	                </a>
 	                <a data-role="button" data-inline="true" data-transition="none" href="#" onclick="glow();">
 	                    Glow
@@ -398,8 +404,8 @@
 		<!-- BACKGROUND SET PAGE -->
         <div data-role="page" id="page10">
             <div data-role="content">
-                <div>
-                    <img id="backable" style="position:relative;left:50%;margin-left:-140px;width: 280px; height: 280px" src="images/moyukhback.png" />
+                <div class="blabbity">
+						<img id="backable" style="position:relative;left:50%;margin-top:80px;margin-left:-60px;width: 120px; height: 120px" src="images/moyukhactualcrop.png" />
                 </div>
 				<div style="position:relative;height:80px;width:400px;overflow-x:scroll;">
                 	<div data-role="fieldcontain" style="position:relative;height:40px; width:500px;">
@@ -426,7 +432,7 @@
 		                </a>
 	                </div>
 				</div>
-                <a data-role="button" onclick="clearFilter('backable');" data-inline="true" data-transition="none" href="#page9">
+                <a data-role="button" data-inline="true" data-transition="none" href="#page9">
                     Back
                 </a>
                 <a style="margin-left:100px;" data-role="button" data-inline="true" data-transition="none" href="#page11">
@@ -450,7 +456,7 @@
                         <input id="textinput8" placeholder="" value="Enter Name Here" type="text" />
                     </fieldset>
                 </div>
-                <a style="margin-left:-1px" data-role="button" data-inline="true" data-transition="none" href="#page10">
+                <a style="margin-left:-1px" onclick="glow();" data-role="button" data-inline="true" data-transition="none" href="#page10">
                     Back
                 </a>
                 <a style="margin-left:-1px" data-role="button" data-inline="true" data-transition="none" href="#page1">
@@ -600,16 +606,11 @@
         <script>
             //App custom javascript
 			function pointillize(){
-				var img = document.getElementById("myImage");
-				var img2 = document.getElementById("backable");
-				Pixastic.process(img, "invert");
-				Pixastic.process(img2, "invert");
+				Pixastic.process(document.getElementById("myImage"), "invert");
 			}
 			function glow(){
-				var img = document.getElementById("myImage");
-				var img2 = document.getElementById("backable");
-				Pixastic.process(img, "glow", {amount:0.5,radius:1.0});
-				Pixastic.process(img2, "glow", {amount:0.5,radius:1.0});
+				Pixastic.process(document.getElementById("myImage"), "glow", {amount:0.5,radius:1.0});
+
 			}
 			function clearFilter(id){
 				var img = document.getElementById(id);
@@ -617,11 +618,14 @@
 			}
 			function filterfinal(){
 				console.log("called");
-				//clearFilter('myImage');			
+				clearFilter('myImage');
 			}
 			touchMove = function(event) {
 				// Prevent scrolling on this element
 				event.preventDefault();
+			}
+			function setBack(color){
+				$(".blabbity").css("background-image",color+".png");
 			}
         </script>
     </body>
