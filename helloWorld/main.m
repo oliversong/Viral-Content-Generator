@@ -21,6 +21,7 @@
 //  helloWorld
 //
 //  Created by Oliver Song on 5/10/12.
+//  6.813 Viral Content Generator
 //  Copyright OPlabs/HTHS 2012. All rights reserved.
 //
 
